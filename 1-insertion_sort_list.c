@@ -10,4 +10,13 @@ void insertion_sort_list(listint_t **list)
 {
 	if (!list || !*list || !(*list)->next)
 		return;
+
+	listint_t *currentNode = (*list)->next;
+
+	while (currentNode)
+	{
+		listint_t *previousNode = currentNode->prev;
+		int tmp = currentNode->data;
+	}
+	currentNode = currentNode->next;
 }
