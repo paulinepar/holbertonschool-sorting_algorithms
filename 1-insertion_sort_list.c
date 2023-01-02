@@ -15,8 +15,7 @@ void insertion_sort_list(listint_t **list)
 
 	while (currentNode)
 	{
-		listint_t *previousNode = currentNode->prev;
-		int tmp = currentNode->data;
+		int tmp = currentNode->n;
 	}
 	currentNode = currentNode->next;
 }
