@@ -21,7 +21,7 @@ void insertion_sort_list(listint_t **list)
 		listint_t *Node = currentNode;
 		int tmp = currentNode->n;
 
-		while (previousNode > tmp)
+		while (previousNode && previousNode->n > tmp)
 		{
 			Node->prev = previousNode->prev;
 		}
