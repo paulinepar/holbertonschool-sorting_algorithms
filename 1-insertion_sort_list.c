@@ -8,44 +8,31 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *currentNode;
-	listint_t *previousNode;
+	listint_t *currentNode, *tmpNode;
 
-	if (!list || !*list || !(*list)->next)
+	if (!list || !*list)
 		return;
 
-	currentNode = (*list)->next;
-
+	currentNode = *list;
 	while (currentNode)
 	{
-		previousNode = currentNode->prev;
-
-		while (previousNode && previousNode->n > currentNode->n)
-		{
-			currentNode->prev = previousNode->prev;
-
-			if (previousNode->prev)
-			{
-				previousNode->prev->next = currentNode;
-			}
-			else
-			{
-			*list = currentNode;
-			}
-
-			previousNode->next = currentNode->next;
-
-			if (currentNode->next)
-			{
-				currentNode->next->prev = previousNode;
-			}
-
-			currentNode->next = previousNode;
-			previousNode->prev = currentNode;
-			print_list(*list);
-			currentNode = previousNode;
-			previousNode = currentNode->prev;
-		}
+		tmpNode = currentNode;
 		currentNode = currentNode->next;
+
+		while (tmpNode->prev && tmpNode->prev->n > tmpNode->n)
+		{
+			tmpNode->prev->next = tmpNode->next;
+			if (tmpNode->next)
+				tmpNode->next->prev = tmpNode->prev;
+			tmpNode->next = tmpNode->prev;
+			tmpNode->prev = tmpNode->prev->prev;
+			tmpNode->next->prev = tmpNode;
+			if (tmpNode->prev)
+				tmpNode->prev->next = tmpNode;
+			else
+				*list = tmpNode;
+
+			print_list(*list);
+		}
 	}
 }
