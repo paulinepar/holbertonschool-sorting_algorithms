@@ -36,6 +36,7 @@ void selection_sort(int arr[], int n)
 		if(k != i)
 		{
 			swap(&arr[k], &arr[i]);
+			print_array(arr, n);
 		}
 	}
 }
