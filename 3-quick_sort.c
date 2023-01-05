@@ -7,7 +7,7 @@
  *
  * Return: 0
  */
-void quick_sort(__attribute__((unused)) 
+void quick_sort(__attribute__((unused))
 		int *array, __attribute__((unused)) size_t size)
 {
 	if (size < 1)
